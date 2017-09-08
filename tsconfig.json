@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+      "target": "es2015",
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "isolatedModules": false,
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
+      "declaration": false,
+      "noImplicitAny": false,
+      "noImplicitUseStrict": false,
+      "strictNullChecks": false,
+      "noEmit": true,
+      "noEmitHelpers": false,
+      "noLib": false,
+      "noUnusedLocals": false,
+      "outDir": "build/out",
+      "allowSyntheticDefaultImports": true,
+      "sourceMap": true,
+      "lib": ["es6", "dom"]
+    },
+    "exclude": [
+      "build",
+      "dist",
+      "node_modules",
+      "src",
+      ".fusebox"
+    ]
+  }

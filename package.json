@@ -1,0 +1,63 @@
+{
+  "name": "ng2-fused-seed",
+  "version": "0.1.0",
+  "description": "Angular2 Seed built with FuseBox, featuring JIT/AOT/HMR/Tree Shaking/Code Splitting/Lazy Route Loading/and more.",
+  "keywords": [
+    "fusebox",
+    "fuse-box",
+    "ng2",
+    "angular2",
+    "ng2",
+    "seed"
+  ],
+  "author": "Alexander Klock",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alex-klock/ng2-fused-seed"
+  },
+  "dependencies": {
+    "@angular/animations": "^4.3.6",
+    "@angular/common": "^4.3.6",
+    "@angular/compiler": "^4.3.6",
+    "@angular/core": "^4.3.6",
+    "@angular/forms": "^4.3.6",
+    "@angular/platform-browser": "^4.3.6",
+    "@angular/platform-browser-dynamic": "^4.3.6",
+    "@angular/router": "^4.3.6",
+    "core-js": "^2.5.1",
+    "reflect-metadata": "^0.1.10",
+    "rxjs": "^5.4.3",
+    "zone.js": "^0.8.17"
+  },
+  "devDependencies": {
+    "@angular/compiler-cli": "^4.3.6",
+    "@angular/platform-server": "^4.3.6",
+    "@types/core-js": "^0.9.42",
+    "@types/fs-extra": "^4.0.0",
+    "@types/node": "^8.0.22",
+    "fs-extra": "^4.0.1",
+    "fuse-box": "^2.2.31",
+    "ng2-fused": "../ng2-fused/",
+    "postcss": "^6.0.10",
+    "postcss-cssnext": "^3.0.2",
+    "postcss-nested": "^2.1.2",
+    "postcss-import": "^10.0.0",
+    "rimraf": "^2.6.1",
+    "ts-node": "^3.3.0",
+    "typescript": "^2.5.2",
+    "uglify-js": "^3.0.28"
+  },
+  "scripts": {
+    "build": "ts-node fuse build",
+    "build:aot": "ts-node fuse build:aot",
+    "clean": "ts-node fuse clean",
+    "fuse": "ts-node fuse fuse",
+    "ngc": "ts-node fuse ngc",
+    "release:aot": "ts-node fuse build:aot --prod",
+    "release:jit": "ts-node fuse build --prod",
+    "start": "ts-node fuse build --serve --watch",
+    "start:aot": "ts-node fuse build:aot --serve --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "MIT"
+}

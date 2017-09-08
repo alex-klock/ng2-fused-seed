@@ -1,0 +1,20 @@
+:root {
+    display: block;
+
+    h1 {
+        font-weight: bold;
+    }
+}
+
+.test {
+    h1 {
+        font-weight: light;
+    }
+    &.item {
+        color: black;
+    }
+
+    &-item {
+        font-weight: lighter;
+    }
+}

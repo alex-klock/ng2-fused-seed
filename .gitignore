@@ -1,0 +1,13 @@
+build
+dist
+node_modules
+
+.vs/
+.vscode/
+.fusebox
+
+package-lock.json
+
+*.tgz
+*.log
+*.log.*
