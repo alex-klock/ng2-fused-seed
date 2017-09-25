@@ -25,6 +25,12 @@ export const NgBuildConfig = {
         port: 8080,
         root:  path.join(process.cwd(), 'dist')
     },
+    specs: {
+        /**
+         * Whether or not to build the spec files in the project.
+         */
+        enabled: true
+    },
     watch: false
 };
 
@@ -41,11 +47,12 @@ export function hasCommandLineArg(argName: string, defaultValue?: string) {
 }
 
 NgBuildConfig.aot = hasCommandLineArg('aot') || NgBuildConfig.aot;
-NgBuildConfig.noCache = hasCommandLineArg('nocache') || NgBuildConfig.noCache;
+NgBuildConfig.noCache = hasCommandLineArg('no-cache') || NgBuildConfig.noCache;
 NgBuildConfig.js.treeShake = hasCommandLineArg('treeshake') || NgBuildConfig.js.treeShake;
 NgBuildConfig.server.enabled = hasCommandLineArg('serve') || NgBuildConfig.server.enabled;
-NgBuildConfig.server.open = !hasCommandLineArg('noopen') || NgBuildConfig.server.open;
-NgBuildConfig.watch = (hasCommandLineArg('watch') && !hasCommandLineArg('nowatch')) || NgBuildConfig.watch;
+NgBuildConfig.server.open = !hasCommandLineArg('no-open') || NgBuildConfig.server.open;
+NgBuildConfig.specs.enabled = hasCommandLineArg('no-specs') ? false : NgBuildConfig.specs.enabled;
+NgBuildConfig.watch = hasCommandLineArg('watch') ? true : hasCommandLineArg('no-watch') ? false : NgBuildConfig.watch;
 
 if (hasCommandLineArg('minify')) {
     NgBuildConfig.css.minify = true;
@@ -57,6 +64,15 @@ if (hasCommandLineArg('optimize') || hasCommandLineArg('prod')) {
     NgBuildConfig.js.minify = true;
     NgBuildConfig.js.treeShake = true;
     NgBuildConfig.optimize = true;
+}
+
+if (hasCommandLineArg('no-minify')) {
+    NgBuildConfig.css.minify = false;
+    NgBuildConfig.js.minify = false;
+}
+
+if (hasCommandLineArg('no-treeshake')) {
+    NgBuildConfig.js.treeShake = false;
 }
 
 if (hasCommandLineArg('prod')) {

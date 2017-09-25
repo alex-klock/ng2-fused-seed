@@ -1,0 +1,1 @@
+declare function suite(description: string, specDefinitions: () => void): void;

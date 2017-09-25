@@ -27,21 +27,28 @@
     "core-js": "^2.5.1",
     "reflect-metadata": "^0.1.10",
     "rxjs": "^5.4.3",
-    "zone.js": "^0.8.17"
+    "zone.js": "^0.8.17",
+    "jasmine-core": "^2.8.0"
   },
   "devDependencies": {
     "@angular/compiler-cli": "^4.3.6",
     "@angular/platform-server": "^4.3.6",
     "@types/core-js": "^0.9.42",
     "@types/fs-extra": "^4.0.0",
+    "@types/jasmine": "^2.5.54",
+    "@types/karma": "^0.13.36",
     "@types/node": "^8.0.22",
     "fs-extra": "^4.0.1",
     "fuse-box": "^2.2.31",
+    "karma": "^1.7.1",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^1.1.0",
+    "karma-jasmine-html-reporter": "^0.2.2",
     "ng2-fused": "../ng2-fused/",
     "postcss": "^6.0.10",
     "postcss-cssnext": "^3.0.2",
-    "postcss-nested": "^2.1.2",
     "postcss-import": "^10.0.0",
+    "postcss-nested": "^2.1.2",
     "rimraf": "^2.6.1",
     "ts-node": "^3.3.0",
     "typescript": "^2.5.2",
@@ -53,11 +60,11 @@
     "clean": "ts-node fuse clean",
     "fuse": "ts-node fuse fuse",
     "ngc": "ts-node fuse ngc",
-    "release:aot": "ts-node fuse build:aot --prod",
-    "release:jit": "ts-node fuse build --prod",
+    "release:aot": "ts-node fuse build:aot --prod --no-cache",
+    "release:jit": "ts-node fuse build --prod --no-cache",
     "start": "ts-node fuse build --serve --watch",
     "start:aot": "ts-node fuse build:aot --serve --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "karma start config/karma.config.js"
   },
   "license": "MIT"
 }

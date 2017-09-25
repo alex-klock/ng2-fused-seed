@@ -1,20 +1,27 @@
-:root {
+:host {
     display: block;
+}
 
-    h1 {
-        font-weight: bold;
+.page {
+
+}
+
+header {
+    nav {
+        ul {
+            margin: 0;
+            padding: 0;
+            li {
+                list-style: none;
+            }
+        }
     }
 }
 
-.test {
-    h1 {
-        font-weight: light;
-    }
-    &.item {
-        color: black;
-    }
+main {
 
-    &-item {
-        font-weight: lighter;
-    }
+}
+
+footer {
+    
 }

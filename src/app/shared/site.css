@@ -1,11 +1,1 @@
-@import 'styles/utils.css';
-@import 'styles/global.css';
 @import 'styles/app.css';
-
-body {
-    font-weight: bold;
-
-    & h1 {
-        font-weight: bolder;
-    }
-}

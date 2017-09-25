@@ -1,3 +1,18 @@
-<h1>Your App</h1>
-
-<router-outlet></router-outlet>
+<div class="page">
+    <header>
+        <div>Angular2 + FuseBox Seed</div>
+        <nav>
+            <ul>
+                <li><a routerLink="/" routerLinkActive="active">Home</a></li>
+                <li><a routerLink="/feature" routerLinkActive="active">Feature</a></li>
+                <li><a href="https://github.com/alex-klock/ng2-fused" target="_blank">Ng2Fused</a></li>
+                <li><a href="http://fuse-box.org/" target="_blank">FuseBox</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <router-outlet></router-outlet>
+    </main>
+    <footer>
+    </footer>
+</div>

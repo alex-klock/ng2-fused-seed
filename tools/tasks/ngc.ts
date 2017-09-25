@@ -1,5 +1,5 @@
 import { main as ngc  } from '@angular/compiler-cli/src/main';
-import { NgBuildContext, Sparky, buildCss, enableDisableProdMode, renameFile } from '../task-utils';
+import { NgBuildContext, Sparky, buildCss, disableProdMode, renameFile } from '../task-utils';
 
 const config = NgBuildContext.config;
 const paths = NgBuildContext.paths;
@@ -13,7 +13,7 @@ Sparky.task('ngc', ['clean'], () => {
     
     let flow = source(['./**/**.*'], { base: './src' })
         .file('*.component.css', buildCss)
-        .file('main.**.ts', enableDisableProdMode)
+        .file('main.**.ts', disableProdMode)
         .dest(paths.workspace());
 
     flow['activities'].push(() => {

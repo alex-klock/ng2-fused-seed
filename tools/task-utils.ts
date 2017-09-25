@@ -27,10 +27,12 @@ export function cleanPath(pathToClean: string = paths.build('./', '')) {
         .clean(pathToClean);
 }
 
-export function enableDisableProdMode(file: SparkyFile) {
+export function disableProdMode(file: SparkyFile) {
     file.read();
     let contents: string = <string>file.contents.toString();
-    file.setContent(contents.replace('//@enableProdMode', config.production ? 'enableProdMode();' : ''));
+    if (!config.production) {
+        file.setContent(contents.replace('enableProdMode();', ''));
+    }
 }
 
 export function executeTask(taskIndex: number = 0) {
