@@ -25,11 +25,6 @@ Sparky.task('build:init', ['clean'], () => {
     const flow = source(['./**/**.*'], { base: './src' })
         .file('*.component.css', buildCss)
         .file('main.ts|main.aot.ts', disableProdMode)
-        .file('*.spec.ts', (file: SparkyFile) => {
-            if (specs.indexOf(file.homePath) === -1) {
-                specs.push(file.homePath);
-            }
-        })
         .dest(paths.workspace());
 
     
@@ -39,5 +34,5 @@ Sparky.task('build:init', ['clean'], () => {
             paths.workspace('tsconfig.aot.json'));
     });
         
-    return flow.exec();
+    return flow;
 });

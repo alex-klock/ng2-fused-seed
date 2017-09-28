@@ -14,7 +14,10 @@
     "outDir": "../out",
     "pretty": true
   },
-
+  "include": [
+    "main.ts",
+    "app/**/*.module.ts"
+  ],
   "exclude": [
   ],
 

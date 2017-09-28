@@ -12,7 +12,7 @@ const paths = NgBuildContext.paths;
 /**
  * Build task that executes FuseBox and bundles / optimizes the application.
  */
-Sparky.task('fuse', () => {
+Sparky.task('fuse', ['clean:cache'], () => {
     
     // CONFIGURE FUSEBOX AND GLOBAL PLUGINS...
     const useQuantum = config.js.minify || config.js.treeShake;
@@ -23,6 +23,8 @@ Sparky.task('fuse', () => {
         output: paths.dist('./', 'assets/js/$name.js'),
         sourceMaps: config.js.sourcemaps,
         target: 'browser',
+        // debug: true,
+        // log: true,
         plugins: [
             WebIndexPlugin({
                 bundles: ['vendors', 'app'],
@@ -52,8 +54,7 @@ Sparky.task('fuse', () => {
                 aot: config.aot,
                 autoSplitBundle: 'app',
                 vendorBundle: 'vendors'
-            })
-           
+            })          
         ]
     });
 
@@ -84,7 +85,7 @@ Sparky.task('fuse', () => {
     // CONFIGURE BUNDLES...
     const vendors = fuse.bundle('vendors')
         .instructions('~ main.ts + ng2-fused/modules/ng-fused-module-loader' +
-           (config.specs.enabled ? ' ~ testing/specs.ts' : ' - testing/specs.ts'));
+           (!config.specs.enabled ? ' - testing/specs.ts' : ''));
 
     const app = fuse.bundle('app')
         .plugin(config.specs.enabled && Ng2SpecBundlePlugin())
@@ -96,16 +97,14 @@ Sparky.task('fuse', () => {
             server: 'dist/assets/js/bundles/',
             dest: 'bundles/'
         })
-        .instructions('!> [main.ts] + [**/+*/**/*.{ts,css,html}]' +
-            (config.specs.enabled ? ' + [testing/specs.ts] + [**/*.spec.ts]' : ' - testing/specs.ts - **/*.spec.ts'));
+        .instructions('!> [main.ts] + [**/+*/**/*.module.ts] + [**/+*/**/*.component.{ts,css,html}]' +
+            (!config.specs.enabled ? ' - testing/specs.ts - **/*.spec.ts' : ''));
     
     // ENABLE WATCH AND HMR IF CONFIGURED...
     if (config.watch) {
-        vendors.hmr().watch();
-        app.watch();
+        vendors.hmr();
+        app.hmr().watch();
     }
     
-    fuse.run().then(() => {
-        
-    });
+    return fuse.run();
 });
