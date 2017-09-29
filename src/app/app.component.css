@@ -8,6 +8,12 @@
 
 header {
 
+    border-bottom: 1px solid #111;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 5px;
+    width: 100%;
+
     .title {
         float: left;
         width: 30%;
@@ -25,8 +31,13 @@ header {
             li {
                 display: inline-block;
                 list-style: none;
-                margin: 0 2px;
-                padding: 5px;
+                margin: 0;
+                padding: 0 5px;
+                
+                &:hover {
+                    background-color: #eee;
+                    color: #333;
+                }
 
                 a {
                     text-decoration: none;
@@ -42,9 +53,5 @@ header {
 }
 
 main {
-
-}
-
-footer {
-
+    padding: 5px;
 }

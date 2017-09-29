@@ -1,14 +1,12 @@
 # NG2-FUSED-SEED
 Minimilistic Angular2 Seed utilizing the awesome development and build speed of FuseBox! JIT/AOT/HMR/Tree Shaking/Code Splitting/Lazy Route Loading.
 
-**Not ready for use yet: ng2-fused 0.5 needs to be published.  Real html/css needs to be added to components.  Specs need to be added.**
-
 ## Features
 * Uber fast build times thanks to FuseBox.
 * Builds with Angular JIT compilation.
 * Builds with Angular AOT compilation (for enhanced optimization).
 * Utilizes FuseBox's Quantum plugin for minification, dead code elimination, and tree shaking.
-* File watching to automagically build when code changes.
+* File watching to automatically rebuild when code is changed.
 * Hot Module Reloading to have your changes automatically reload in the browser.
 * Split vendor/app bundles.
 * Lazy Loaded Routing in both JIT and AOT modes.
@@ -31,6 +29,21 @@ Minimilistic Angular2 Seed utilizing the awesome development and build speed of 
 1. Browser should automatically open to http://localhost:8080.
 1. Observe lazy loaded route and module at http://localhost:8080/feature.
 
+## Executing Unit Tests
+
+1. Run a build...
+    ```bash
+    npm run build
+    ```
+    or...
+    ```bash
+    npm run build:aot
+    ```
+1. Run the tests...
+    ```bash
+    npm run test
+    ```
+
 ## Build Scripts
 
 ### JIT Development Server
@@ -49,3 +62,16 @@ npm run start:aot
 ```bash
 npm run build:aot
 ```
+
+## Production Build
+Running the --prod flag executes a production ready build that eliminates dead code, performs tree shaking, and minifies the bundle.  You can use the release scripts as well.
+```bash
+npm run release:aot
+npm run release:jit
+```
+
+## FAQ
+
+### Why do you copy source files to build/workspace first?
+
+To allow for multi step processing and mutations on the source.  Mostly this was our workaround to get AOT builds to play nicely with other code transformations as well as css pre/post processing.
