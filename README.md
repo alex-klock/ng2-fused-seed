@@ -1,5 +1,5 @@
 # NG2-FUSED-SEED
-Minimilistic Angular2 Seed utilizing the awesome development and build speed of FuseBox! JIT/AOT/HMR/Tree Shaking/Code Splitting/Lazy Route Loading.
+Minimilistic Angular2 Seed utilizing the awesome development and build speed of [FuseBox](http://fuse-box.org/) with Angular Plugins from [ng2-fused](https://github.com/alex-klock/ng2-fused)! JIT/AOT/HMR/Tree Shaking/Code Splitting/Lazy Route Loading.
 
 ## Features
 * Uber fast build times thanks to FuseBox.
