@@ -1,10 +1,9 @@
 import { NgModule, Type } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FeatureComponent } from './feature.component';
+import { NestedComponent } from './nested.component';
 
 export const ROUTES: Routes = [
-    { path: '', component: FeatureComponent },
-    { path: 'nested', loadChildren: 'app/+feature/+nested/nested.module#NestedModule' }
+    { path: '', component: NestedComponent }
 ];
 
 @NgModule({
@@ -15,4 +14,4 @@ export const ROUTES: Routes = [
         RouterModule.forChild(ROUTES)
     ]
 })
-export class FeatureRoutingModule {}
+export class NestedRoutingModule {}

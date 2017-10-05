@@ -54,7 +54,7 @@ Sparky.task('fuse', ['clean:cache'], () => {
                 aot: config.aot,
                 autoSplitBundle: 'app',
                 vendorBundle: 'vendors'
-            })          
+            })      
         ]
     });
 
@@ -97,9 +97,13 @@ Sparky.task('fuse', ['clean:cache'], () => {
             server: 'dist/assets/js/bundles/',
             dest: 'bundles/'
         })
-        .instructions('!> [main.ts] + [**/+*/**/*.module.ts] + [**/+*/**/*.component.{ts,css,html}]' +
+        .instructions('!> [main.ts] + [**/+*/**/*.module.{ts,ngfactory.ts}] + [**/+*/**/*.{component,component.*}.{ts,css,html,}]' +
             (!config.specs.enabled ? ' - testing/specs.ts - **/*.spec.ts' : ''));
+
     
+    //app.split('app/+feature/**', 'feature > app/+feature/feature.module');
+    //app.split('app/+feature/+nested/**', 'nested > app/+feature/+nested/nested.module');
+
     // ENABLE WATCH AND HMR IF CONFIGURED...
     if (config.watch) {
         vendors.hmr();
